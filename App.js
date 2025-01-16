@@ -5,6 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
+// Dynamic port allocation
+const PORT = process.env.PORT || 8080; // Changed from 3000 to 8080
+
 // Middleware
 app.use(express.static('public'));
 app.use(express.json());
@@ -14,8 +17,17 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
-        app.listen(process.env.PORT , () => {
-            console.log(`Server is running on port ${process.env.PORT || 3000}`);
+        // Try different ports if the default is busy
+        const server = app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`);
+        }).on('error', (err) => {
+            if (err.code === 'EADDRINUSE') {
+                // If port is busy, try the next port
+                console.log(`Port ${PORT} is busy, trying ${PORT + 1}`);
+                server.listen(PORT + 1);
+            } else {
+                console.error('Server error:', err);
+            }
         });
     })
     .catch(err => console.error('MongoDB connection error:', err));
