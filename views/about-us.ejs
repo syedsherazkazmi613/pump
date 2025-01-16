@@ -1,0 +1,196 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About us</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="/css/output.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/img/logo.png">
+        <link href="/css/style2.css" rel="stylesheet">
+    </head>
+    <body class="bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900">
+        <!-- Navigation Section -->
+        <div class="nav-scroll">
+            <nav class="shadow-md bg-gray-900/90 backdrop-blur-md fixed w-full z-50">
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="flex justify-between items-center h-16">
+                        <!-- Logo Side -->
+                        <div class="flex-shrink-0">
+                            <a href="/" class="font-bold">
+                                <img class="w-32 h-32" src="/img/logo.png" alt="PUMP GROUP Logo">
+                            </a>
+                        </div>
+        
+                        <!-- Navigation Links -->
+                        <div class="hidden md:flex items-center gap-5">
+                            <a href="/" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                                <span>Accueil</span>
+                                <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                            </a>
+                            <a href="/our-service" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                                <span>Nos Services</span>
+                                <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                            </a>
+                            <a href="/about-us" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                                <span>À Propos</span>
+                                <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                            </a>
+                            <a href="/contact" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                                <span>Contact</span>
+                                <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                            </a>
+                            <a href="/faq" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                                <span>FAQ</span>
+                                <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                            </a>
+                        </div>
+        
+                        <!-- Button Side -->
+                        <div class="flex items-center">
+                            <% if (isAuthenticated) { %>
+                                <button onclick="window.location.href='/api/auth/logout'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                                    Déconnexion
+                                </button>
+                            <% } else { %>
+                                <button onclick="window.location.href='/login'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                                    Connexion / Inscription
+                                </button>
+                            <% } %>
+                        </div>
+        
+                        <!-- Mobile menu button -->
+                        <div class="md:hidden">
+                            <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                                <span class="sr-only">Ouvrir le menu</span>
+                                <svg class="block h-6 w-6" id="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                                <svg class="hidden h-6 w-6" id="close-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Mobile menu -->
+                    <div class="hidden md:hidden" id="mobile-menu">
+                        <div class="px-2 pt-2 pb-3 space-y-1">
+                            <a href="/" class="block text-white px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                            <a href="/our-service" class="block text-white px-3 py-2 rounded-md text-base font-medium">Nos Services</a>
+                            <a href="/about-us" class="block text-white px-3 py-2 rounded-md text-base font-medium">À Propos</a>
+                            <a href="/contact" class="block text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                            <a href="/faq" class="block text-white px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-16 bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-12">
+                <h1 class="text-4xl lg:text-6xl font-extrabold text-center animate-fade-in">
+                    <span class="block bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-violet-400">Qui sommes Nous </span>
+                </h1>
+                <p class="mt-6 text-lg lg:text-xl text-center leading-relaxed max-w-3xl mx-auto text-white/80">
+                    Chez <strong>PUMP GROUP</strong>, nous sommes une équipe passionnée par le digital et déterminée à transformer vos ambitions en succès. Nous mettons à votre disposition nos diverses compétences pour vous offrir des solutions sur-mesure en marketing, communication et ventes.
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <img src="/img/photo-1552664730-d307ca884978.jpg" alt="Notre équipe" class="rounded-lg shadow-xl w-4/5 h-72 object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-12 lg:py-20 bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900">
+            <div class="max-w-5xl mx-auto px-6 lg:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 mb-8 gap-12">
+                    <!-- Development Expertise -->
+                    <div class="bg-black/20 p-6 rounded-lg backdrop-blur-sm">
+                        <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">Développement Web</h2>
+                        <p class="text-lg leading-relaxed text-white/80 mb-6">
+                            Nos développeurs web, triés sur le volet parmi les meilleurs talents du monde entier, créent des sites internet modernes, performants et adaptés à vos besoins spécifiques.
+                        </p>
+                        <div class="h-56 overflow-hidden">
+                            <img src="/img/photo-1498050108023-c5249f4df085.jpg" alt="Développement Web" class="rounded-lg shadow-lg w-full h-56 object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Communication Strategy -->
+                    <div class="bg-black/20 p-6 rounded-lg backdrop-blur-sm">
+                        <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">Communication</h2>
+                        <p class="text-lg leading-relaxed text-white/80 mb-6">
+                            En tant qu'experts en communication, basés en France, nous nous occupons de créer des stratégies engageantes et des contenus captivants pour attirer et fidéliser vos clients.
+                        </p>
+                        <div class="h-56 overflow-y-hidden">
+                            <img src="/img/photo-1552664688-cf412ec27db2.jpg" alt="Communication Strategy" class="rounded-lg shadow-lg w-full h-56 object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marketing Section -->
+                <div class="mt-12 bg-black/20 p-6 rounded-lg backdrop-blur-sm">
+                    <h2 class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">Marketing Digital</h2>
+                    <p class="text-lg leading-relaxed text-white/80 mb-6">
+                        Spécialiste du marketing, nous analysons les tendances du marché et développons des campagnes innovantes pour maximiser votre visibilité et votre impact. Grâce à notre expertise, nous vous aidons à atteindre vos objectifs commerciaux avec efficacité.
+                    </p>
+                    <!-- <div class="h-56 overflow-hidden">
+                        <img src="/img/photo-1552664730-d307ca884978.jpg" alt="Marketing Digital" class="rounded-lg shadow-lg w-full h-56 object-cover">
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Call-to-Action -->
+        <section class="bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900 py-16 text-center">
+            <div class="max-w-4xl mx-auto px-6">
+                <h2 class="text-3xl lg:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-400">
+                    Transformez vos rêves en réalité numérique
+                </h2>
+                <p class="text-lg text-white/80 mb-8">
+                    Chez PUMP GROUPE, nous croyons en la force de la collaboration et en la satisfaction du travail bien fait. Rejoignez-nous et laissez-nous transformer vos rêves en réalité numérique !
+                </p>
+                <!-- <div class="mb-8 h-64 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1522071901873-411886a10004" alt="Innovation" class="rounded-lg shadow-xl mx-auto w-full h-64 object-cover">
+                </div> -->
+                <a href="/contact" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white font-bold rounded-lg shadow-lg hover:opacity-90 transition-all">
+                    Contactez-Nous
+                </a>
+            </div>
+        </section>
+
+        <footer class="w-full bg-black backdrop-blur-lg py-6 border-t border-cyan-500/30 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 animate-pulse"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-white/80 text-sm mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+                        <div class="font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">PUMP GROUP</div>
+                        <p class="max-w-md leading-relaxed backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-cyan-400/20">
+                            Transform your dreams into digital reality. Boost your online presence with a tailored digital strategy: high-performing websites, creative campaigns, engaging content, and optimized SEO.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-end space-y-3">
+                        <div class="text-white/80 text-sm backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-purple-400/20">
+                            <div class="font-medium">Hugo Bessières</div>
+                            <a href="mailto:hugobess@live.fr" class="hover:text-cyan-400 transition duration-200 group">
+                                hugobess@live.fr
+                                <span class="group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
+                            </a>
+                            <div class="font-light">Tel: 0612142402</div>
+                        </div>
+                        <div class="flex space-x-6 mt-4">
+                            <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Privacy Policy</a>
+                            <a href="/faq" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Terms of Service</a>
+                            <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="/javascript/index.js"></script>
+    </body>
+    </html>

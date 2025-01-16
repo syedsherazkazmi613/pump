@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/output.css" rel="stylesheet">
+    <link href="/css/style2.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Section -->
+    <div class="loader-wrapper">
+        <div class="loader">
+            <div class="circle-loader"></div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-scroll">
+        <nav class="shadow-md bg-gray-900/90 backdrop-blur-md fixed w-full z-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Logo Side -->
+                    <div class="flex-shrink-0">
+                        <a href="/" class="font-bold">
+                            <img class="w-32 h-32" src="/img/logo.png" alt="PUMP GROUP Logo">
+                        </a>
+                    </div>
+    
+                    <!-- Navigation Links -->
+                    <div class="hidden md:flex items-center gap-5">
+                        <a href="/" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                            <span>Accueil</span>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                        </a>
+                        <a href="/our-service" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                            <span>Nos Services</span>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                        </a>
+                        <a href="/about-us" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                            <span>À Propos</span>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                        </a>
+                        <a href="/contact" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                            <span>Contact</span>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                        </a>
+                        <a href="/faq" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                            <span>FAQ</span>
+                            <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                        </a>
+                    </div>
+    
+                    <!-- Button Side -->
+                    <div class="flex items-center">
+                        <% if (isAuthenticated) { %>
+                            <button onclick="window.location.href='/api/auth/logout'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                                Déconnexion
+                            </button>
+                        <% } else { %>
+                            <button onclick="window.location.href='/login'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                                Connexion / Inscription
+                            </button>
+                        <% } %>
+                    </div>
+    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                            <span class="sr-only">Ouvrir le menu</span>
+                            <svg class="block h-6 w-6" id="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg class="hidden h-6 w-6" id="close-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+    
+                <!-- Mobile menu -->
+                <div class="hidden md:hidden" id="mobile-menu">
+                    <div class="px-2 pt-2 pb-3 space-y-1">
+                        <a href="/" class="block text-white px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                        <a href="/our-service" class="block text-white px-3 py-2 rounded-md text-base font-medium">Nos Services</a>
+                        <a href="/about-us" class="block text-white px-3 py-2 rounded-md text-base font-medium">À Propos</a>
+                        <a href="/contact" class="block text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                        <a href="/faq" class="block text-white px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div class="overflow-x-hidden bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900 text-white min-h-screen flex flex-col md:flex-row items-center justify-center">
+        <div class="ml-5 w-full md:w-1/2 text-left my-4 p-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Transformez vos rêves en réalité <span class="font-mono text-purple-400 border-dashed border-b">digitale</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-8 text-white/90">
+                Boostez votre présence en ligne avec une stratégie numérique sur mesure : sites web performants,
+                campagnes créatives, contenus engageants et SEO optimisé.
+            </p>
+            <p class="text-lg md:text-2xl mb-8 text-white/90">
+                Ensemble, bâtissons une présence en ligne qui attire, captive et convertit. Prêts à commencer cette
+                aventure ensemble ? 🚀
+            </p>
+            <a href="/contact"
+                class="bg-gradient-to-r from-purple-500 to-violet-600 text-white hover:from-purple-600 hover:to-violet-700 px-6 py-3 rounded-lg font-semibold text-lg shadow-md">
+                Prêt ?
+            </a>
+        </div>
+        <div class="w-full md:w-1/2 flex justify-center">
+            <div id="computer-container" class="w-full h-full relative cursor-move">
+                <canvas id="computer3d" class="w-full h-full rounded-lg "></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900 text-white min-h-screen flex flex-col md:flex-row items-center justify-center">
+        <div style="border-radius: 40px; border-bottom-left-radius:0 ;border-bottom-right-radius:0" class="w-4/5 bg-black1 service-section bg-gray-900 backdrop-blur-md px-4 rounded-xl shadow-xl py-20 mx-auto transition-all duration-300" data-scroll data-scroll-speed="0.1">
+            <h1 class="text-5xl md:text-7xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-violet-400 mb-16 tracking-tight leading-none" data-scroll data-scroll-speed="0.2">
+                Notre expertise
+            </h1>
+            <h1 class="text-2xl md:text-4xl font-light text-center text-white/80 mb-12 max-w-5xl mx-auto leading-relaxed" data-scroll data-scroll-speed="0.15">
+                Nous sommes des artisans du numérique, façonnant l'avenir du web avec passion et innovation
+            </h1>
+            <div class="py-8">
+                <div class="max-w-7xl mx-auto p-6 bg-black1 bg-gray-900 text-white">
+                    <h1 class="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-violet-400 mb-12 tracking-widest">
+                        Nos Services
+                    </h1>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Site Vitrine -->
+                        <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                            <h2 class="text-2xl font-semibold text-white mb-4">Site Vitrine</h2>
+                            <p class="text-white/80 mb-3">Une présence en ligne professionnelle avec un site vitrine moderne et responsive.</p>
+                            <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">499€</span></p>
+                            <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                                <li>Design et création sur mesure</li>
+                                <li>Optimisation SEO de base</li>
+                                <li>Intégration formulaire de contact</li>
+                                <li>Visuels réseaux sociaux</li>
+                                <li>Formation gestion du site</li>
+                            </ul>
+                            <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                                Je suis intéressé
+                            </a>
+                        </div>
+                    
+                        <!-- E-commerce -->
+                        <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                            <h2 class="text-2xl font-semibold text-white mb-4">E-commerce</h2>
+                            <p class="text-white/80 mb-3">Créez une plateforme e-commerce robuste et performante.</p>
+                            <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">799€</span></p>
+                            <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                                <li>Design e-commerce personnalisé</li>
+                                <li>Configuration des paiements</li>
+                                <li>Optimisation SEO produits</li>
+                                <li>Système de gestion des stocks</li>
+                            </ul>
+                            <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                                Je suis intéressé
+                            </a>
+                        </div>
+                    
+                        <!-- Refonte de Site -->
+                        <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                            <h2 class="text-2xl font-semibold text-white mb-4">E-book & Plateforme de Vente</h2>
+                            <p class="text-white/80 mb-3">Solution complète pour influenceurs : création d'e-book personnalisé et plateforme de vente dédiée.</p>
+                            <p class="font-bold text-white/90">Modèle de revenu: <span class="text-purple-400">Commission sur ventes</span></p>
+                            <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                                <li>Création d'e-book professionnel</li>
+                                <li>Site de vente personnalisé</li>
+                                <li>Système de paiement sécurisé</li>
+                                <li>Tableau de bord des ventes</li>
+                                <li>Marketing et promotion</li>
+                            </ul>
+                            <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                                Je suis intéressé
+                            </a>
+                        </div>
+                        <!-- SEO -->
+                        <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                            <h2 class="text-2xl font-semibold text-white mb-4">SEO</h2>
+                            <p class="text-white/80 mb-3">Améliorez la visibilité de votre site.</p>
+                            <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">299€</span></p>
+                            <p class="font-bold text-white/90">Forfait mensuel: <span class="text-purple-400">À partir de 119€/mois</span></p>
+                            <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                                <li>Audit SEO complet</li>
+                                <li>Optimisation on-page</li>
+                                <li>Stratégie de mots-clés</li>
+                                <li>Campagnes de backlinks</li>
+                            </ul>
+                            <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                                Je suis intéressé
+                            </a>
+                        </div>
+                    
+                        <!-- Hébergement & Maintenance -->
+                        <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                            <h2 class="text-2xl font-semibold text-white mb-4">Hébergement & Maintenance</h2>
+                            <p class="text-white/80 mb-3">Hébergement fiable et support technique.</p>
+                            <p class="font-bold text-white/90">Forfait mensuel: <span class="text-purple-400">À partir de 25€/mois</span></p>
+                            <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                                <li>Hébergement sécurisé</li>
+                                <li>Sauvegardes automatiques</li>
+                                <li>Mises à jour régulières</li>
+                                <li>Surveillance sécurité</li>
+                            </ul>
+                            <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                                Je suis intéressé
+                            </a>
+                        </div>
+                    
+                        <!-- Publicité en Ligne -->
+                        <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                            <h2 class="text-2xl font-semibold text-white mb-4">Publicité en Ligne</h2>
+                            <p class="text-white/80 mb-3">Campagnes ciblées sur Google, Facebook, TikTok et Instagram.</p>
+                            <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">249€</span></p>
+                            <p class="font-bold text-white/90">Forfait mensuel: <span class="text-purple-400">À partir de 119€/mois</span></p>
+                            <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                                <li>Configuration Google Ads</li>
+                                <li>Publicités réseaux sociaux</li>
+                                <li>Optimisation et suivi ROI</li>
+                            </ul>
+                            <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                                Je suis intéressé
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" bg-gray-900 text-white min-h-screen flex flex-col md:flex-row items-center justify-center">
+        <div class="pt-24 pb-12 px-4 max-w-6xl mx-auto">
+            <h1 class="text-4xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-violet-400">
+                Questions Fréquemment Posées
+            </h1>
+    
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-400/30 transition-all duration-300 hover:bg-white/10">
+                    <h3 class="text-xl font-semibold text-white mb-3">Technologies Utilisées</h3>
+                    <p class="text-white/80">WordPress et plugins premium (WooCommerce pour l'e-commerce), garantissant des solutions robustes et évolutives pour les besoins de votre entreprise.</p>
+                </div>
+    
+                <!-- FAQ Item 2 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-400/30 transition-all duration-300 hover:bg-white/10">
+                    <h3 class="text-xl font-semibold text-white mb-3">Domaine et Hébergement</h3>
+                    <p class="text-white/80">Nous prenons en charge les domaines existants tout en fournissant un hébergement premium en interne pour des performances et une sécurité optimales. Notre infrastructure d'hébergement est conçue pour une disponibilité et une vitesse maximales.</p>
+                </div>
+    
+                <!-- FAQ Item 3 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-400/30 transition-all duration-300 hover:bg-white/10">
+                    <h3 class="text-xl font-semibold text-white mb-3">Optimisation SEO</h3>
+                    <p class="text-white/80">Nos sites sont construits en tenant compte des meilleures pratiques SEO. Bien que nous optimisions pour les moteurs de recherche, les classements dépendent de stratégies complètes et de mises à jour régulières du contenu.</p>
+                </div>
+    
+                <!-- FAQ Item 4 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-400/30 transition-all duration-300 hover:bg-white/10">
+                    <h3 class="text-xl font-semibold text-white mb-3">Contenu et Image de Marque</h3>
+                    <p class="text-white/80">Services complets de création de contenu et de conception professionnelle de logo disponibles. Nous vous aidons à établir votre identité de marque avec des solutions personnalisées.</p>
+                </div>
+    
+                <!-- FAQ Item 5 -->
+                <div class="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-purple-400/30 transition-all duration-300 hover:bg-white/10">
+                    <h3 class="text-xl font-semibold text-white mb-3">Support et Maintenance</h3>
+                    <p class="text-white/80">Équipe de support dédiée disponible pour l'assistance technique et la maintenance régulière pour maintenir votre site web en bon état de fonctionnement et sécurisé.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900 py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-white to-violet-400 mb-6">
+                    À Propos de PUMP GROUP
+                </h2>
+                <p class="text-lg text-white/80 max-w-3xl mx-auto">
+                    Pionnier de l'avenir de l'innovation numérique avec des solutions de pointe et des stratégies transformatrices
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Vision Card -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-violet-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                    <div class="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-400 rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-2xl">🎯</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-4">Notre Vision</h3>
+                        <p class="text-white/70">Donner aux entreprises les moyens de réussir grâce à des solutions numériques innovantes qui stimulent la croissance et le succès sur le marché moderne.</p>
+                    </div>
+                </div>
+
+                <!-- Mission Card -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-violet-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                    <div class="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-400 rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-2xl">🚀</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-4">Notre Mission</h3>
+                        <p class="text-white/70">Offrir des expériences numériques exceptionnelles grâce à une technologie de pointe et l'excellence créative.</p>
+                    </div>
+                </div>
+
+                <!-- Values Card -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-violet-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                    <div class="relative bg-gray-900/50 backdrop-blur-xl p-8 rounded-2xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-violet-400 rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-2xl">💫</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-white mb-4">Nos Valeurs</h3>
+                        <p class="text-white/70">L'innovation, l'intégrité et l'excellence guident tout ce que nous faisons pour façonner l'avenir numérique.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="/about-us" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 text-white font-bold rounded-lg shadow-lg hover:opacity-90 transition-all">
+                    En Savoir Plus Sur Nous
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="w-full bg-black backdrop-blur-lg py-6 border-t border-cyan-500/30 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 animate-pulse"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-white/80 text-sm mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+                    <div class="font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">PUMP GROUP</div>
+                    <p class="max-w-md leading-relaxed backdrop-blur-sm bg-black/80 p-4 rounded-lg border border-cyan-400/20">
+                        Transform your dreams into digital reality. Boost your online presence with a tailored digital strategy: high-performing websites, creative campaigns, engaging content, and optimized SEO.
+                    </p>
+                </div>
+                <div class="flex flex-col items-end space-y-3">
+                    <div class="text-white/80 text-sm backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-purple-400/20">
+                        <div class="font-medium">Hugo Bessières</div>
+                        <a href="mailto:hugobess@live.fr" class="hover:text-cyan-400 transition duration-200 group">
+                            hugobess@live.fr
+                            <span class="group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
+                        </a>
+                        <div class="font-light">Tel: 0612142402</div>
+                    </div>
+                    <div class="flex space-x-6 mt-4">
+                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Privacy Policy</a>
+                        <a href="/faq" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Terms of Service</a>
+                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Set up Three.js scene
+        const scene = new THREE.Scene();
+        const container = document.getElementById('computer-container');
+
+        // Create responsive camera
+        const camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+        
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.getElementById('computer3d'),
+            alpha: true,
+            antialias: true
+        });
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Create floating crystal display
+        const crystalGroup = new THREE.Group();
+        scene.add(crystalGroup);
+
+        // Adjust crystal size based on screen width
+        const isMobile = window.innerWidth < 768;
+        const crystalScale = isMobile ? 0.9 : 1; // Increased mobile scale to 0.9
+
+        // Create main crystal structure with adjusted size and increased transmission
+        const crystalGeometry = new THREE.OctahedronGeometry(8 * crystalScale, 0);
+        const crystalMaterial = new THREE.MeshPhysicalMaterial({
+            color: 0x4B0082,
+            metalness: 0.2,
+            roughness: 0.05, // Reduced roughness for more shine
+            transmission: 0.95, // Increased transmission
+            thickness: 0.3, // Reduced thickness for more light passage
+            envMapIntensity: 2, // Increased environment map intensity
+            clearcoat: 1.5, // Increased clearcoat
+            clearcoatRoughness: 0.05,
+            transparent: true,
+            opacity: 0.8
+        });
+        const crystal = new THREE.Mesh(crystalGeometry, crystalMaterial);
+        crystalGroup.add(crystal);
+
+        // Create inner energy core with increased emission
+        const coreGeometry = new THREE.IcosahedronGeometry(3 * crystalScale, 0);
+        const coreMaterial = new THREE.MeshPhongMaterial({
+            color: 0x9400D3,
+            emissive: 0x9400D3,
+            emissiveIntensity: 1.2, // Increased emission
+            transparent: true,
+            opacity: 0.9
+        });
+        const core = new THREE.Mesh(coreGeometry, coreMaterial);
+        crystal.add(core);
+
+        // Add more intense floating energy particles
+        const particleGeometry = new THREE.TetrahedronGeometry(0.35 * crystalScale);
+        const particleMaterial = new THREE.MeshPhongMaterial({
+            color: 0x8A2BE2,
+            emissive: 0x8A2BE2,
+            emissiveIntensity: 1.5, // Increased emission
+            transparent: true,
+            opacity: 0.9
+        });
+
+        const particleRadius = 7 * crystalScale;
+        for (let i = 0; i < 12; i++) {
+            const particle = new THREE.Mesh(particleGeometry, particleMaterial);
+            const angle = (i / 12) * Math.PI * 2;
+            particle.position.x = Math.cos(angle) * particleRadius;
+            particle.position.z = Math.sin(angle) * particleRadius;
+            particle.userData.angle = angle;
+            particle.userData.radius = particleRadius;
+            particle.userData.yOffset = Math.random() * Math.PI * 2;
+            crystalGroup.add(particle);
+        }
+
+        // Create brighter energy rings
+        const ringGeometry = new THREE.TorusGeometry(11 * crystalScale, 0.15 * crystalScale, 16, 100);
+        const ringMaterial = new THREE.MeshPhongMaterial({
+            color: 0x9932CC,
+            emissive: 0x9932CC,
+            emissiveIntensity: 0.8, // Increased emission
+            transparent: true,
+            opacity: 0.4
+        });
+
+        for (let i = 0; i < 3; i++) {
+            const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+            ring.rotation.x = Math.PI / 3 * i;
+            crystalGroup.add(ring);
+        }
+
+        // Enhanced ethereal lighting setup
+        const mainLight = new THREE.DirectionalLight(0x9370DB, 1.5); // Increased intensity
+        mainLight.position.set(5, 5, 5);
+        scene.add(mainLight);
+
+        const backLight = new THREE.DirectionalLight(0x800080, 0.8); // Increased intensity
+        backLight.position.set(-5, -5, -5);
+        scene.add(backLight);
+
+        const ambientLight = new THREE.AmbientLight(0x483D8B, 0.8); // Increased intensity
+        scene.add(ambientLight);
+
+        // Additional rim lights for enhanced glow
+        const rimLight1 = new THREE.SpotLight(0xFF1493, 1);
+        rimLight1.position.set(15, 0, 0);
+        scene.add(rimLight1);
+
+        const rimLight2 = new THREE.SpotLight(0x4B0082, 1);
+        rimLight2.position.set(-15, 0, 0);
+        scene.add(rimLight2);
+
+        // Enhanced ethereal glow
+        const glowRange = isMobile ? 25 : 25; // Increased range
+        const glowLight1 = new THREE.PointLight(0x8B008B, 3, glowRange); // Increased intensity
+        glowLight1.position.set(0, 0, 5);
+        scene.add(glowLight1);
+
+        const glowLight2 = new THREE.PointLight(0x4B0082, 3, glowRange); // Increased intensity
+        glowLight2.position.set(0, 0, -5);
+        scene.add(glowLight2);
+
+        // Add volumetric lighting effect
+        const volumetricLight = new THREE.PointLight(0xFFFFFF, 2, 30);
+        volumetricLight.position.set(0, 10, 0);
+        scene.add(volumetricLight);
+
+        // Adjust camera position based on screen size
+        camera.position.z = isMobile ? 20 : 20;
+
+        // Mouse interaction variables
+        let isDragging = false;
+        let previousMousePosition = {
+            x: 0,
+            y: 0
+        };
+
+        // Touch sensitivity adjustment
+        const touchSensitivity = isMobile ? 0.06 : 0.05;
+
+        // Mouse and touch event handlers
+        container.addEventListener('mousedown', startDragging);
+        container.addEventListener('mousemove', drag);
+        container.addEventListener('mouseup', stopDragging);
+        container.addEventListener('mouseleave', stopDragging);
+        container.addEventListener('touchstart', startDragging);
+        container.addEventListener('touchmove', drag);
+        container.addEventListener('touchend', stopDragging);
+
+        function startDragging(e) {
+            isDragging = true;
+            if (e.type === 'mousedown') {
+                previousMousePosition = {
+                    x: e.clientX,
+                    y: e.clientY
+                };
+            } else if (e.type === 'touchstart') {
+                e.preventDefault();
+                previousMousePosition = {
+                    x: e.touches[0].clientX,
+                    y: e.touches[0].clientY
+                };
+            }
+        }
+
+        function drag(e) {
+            if (!isDragging) return;
+
+            e.preventDefault();
+            
+            const currentPosition = {
+                x: e.type === 'mousemove' ? e.clientX : e.touches[0].clientX,
+                y: e.type === 'mousemove' ? e.clientY : e.touches[0].clientY
+            };
+
+            const deltaMove = {
+                x: currentPosition.x - previousMousePosition.x,
+                y: currentPosition.y - previousMousePosition.y
+            };
+
+            crystalGroup.rotation.y += deltaMove.x * touchSensitivity;
+            crystalGroup.rotation.x += deltaMove.y * touchSensitivity;
+
+            previousMousePosition = currentPosition;
+        }
+
+        function stopDragging() {
+            isDragging = false;
+        }
+
+        // Enhanced animation with light movement
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (!isDragging) {
+                crystalGroup.position.y = Math.sin(Date.now() * 0.001) * (isMobile ? 0.45 : 0.5);
+                crystalGroup.rotation.y += 0.002;
+            }
+            
+            // Animate particles with enhanced glow
+            crystalGroup.children.forEach(child => {
+                if (child.geometry === particleGeometry) {
+                    child.userData.angle += 0.01;
+                    child.position.x = Math.cos(child.userData.angle) * child.userData.radius;
+                    child.position.z = Math.sin(child.userData.angle) * child.userData.radius;
+                    child.position.y = Math.sin(Date.now() * 0.002 + child.userData.yOffset) * (isMobile ? 2 : 2);
+                    child.rotation.y += 0.02;
+                    child.material.emissiveIntensity = 1 + Math.sin(Date.now() * 0.003) * 0.5;
+                }
+            });
+
+            // Animate core with pulsing effect
+            core.rotation.y += 0.01;
+            core.rotation.z += 0.005;
+            core.scale.setScalar(0.8 + Math.sin(Date.now() * 0.002) * (isMobile ? 0.3 : 0.3));
+            
+            // Animate volumetric light
+            volumetricLight.intensity = 2 + Math.sin(Date.now() * 0.001) * 0.5;
+            
+            renderer.render(scene, camera);
+        }
+
+        // Enhanced responsive handling
+        function handleResize() {
+            const width = container.offsetWidth;
+            const height = container.offsetHeight;
+            
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            
+            renderer.setSize(width, height);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        }
+
+        window.addEventListener('resize', handleResize);
+        window.addEventListener('orientationchange', handleResize);
+
+        animate();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="/javascript/index.js"></script>
+    <script src="/javascript/gsap.js"></script>
+</body>
+    
+</html>

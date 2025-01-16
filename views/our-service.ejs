@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services - PUMP GROUP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="/css/output.css" rel="stylesheet">
+    <link href="/css/style2.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+</head>
+<body class="bg-gray-900">
+<!-- Navigation Section -->
+<div class="nav-scroll">
+    <nav class="shadow-md bg-gray-900/90 backdrop-blur-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo Side -->
+                <div class="flex-shrink-0">
+                    <a href="/" class="font-bold">
+                        <img class="w-32 h-32" src="/img/logo.png" alt="PUMP GROUP Logo">
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center gap-5">
+                    <a href="/" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                        <span>Accueil</span>
+                        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    </a>
+                    <a href="/our-service" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                        <span>Nos Services</span>
+                        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    </a>
+                    <a href="/about-us" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                        <span>À Propos</span>
+                        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    </a>
+                    <a href="/contact" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                        <span>Contact</span>
+                        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    </a>
+                    <a href="/faq" class="text-white text-xl hover:text-purple-400 font-medium relative group">
+                        <span>FAQ</span>
+                        <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-purple-400 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    </a>
+                </div>
+
+                <!-- Button Side -->
+                <div class="flex items-center">
+                    <% if (isAuthenticated) { %>
+                        <button onclick="window.location.href='/api/auth/logout'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                            Déconnexion
+                        </button>
+                    <% } else { %>
+                        <button onclick="window.location.href='/login'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                            Connexion / Inscription
+                        </button>
+                    <% } %>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500">
+                        <span class="sr-only">Ouvrir le menu</span>
+                        <svg class="block h-6 w-6" id="menu-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" id="close-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div class="hidden md:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="/" class="block text-white px-3 py-2 rounded-md text-base font-medium">Accueil</a>
+                    <a href="/our-service" class="block text-white px-3 py-2 rounded-md text-base font-medium">Nos Services</a>
+                    <a href="/about-us" class="block text-white px-3 py-2 rounded-md text-base font-medium">À Propos</a>
+                    <a href="/contact" class="block text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                    <a href="/faq" class="block text-white px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<div style="border-radius: 40px; border-bottom-left-radius:0; border-bottom-right-radius:0" class="w-full bg-gradient-to-r from-gray-900 via-purple-900 to-violet-900 px-4 rounded-xl shadow-xl py-20 mx-auto transition-all duration-300" data-scroll data-scroll-speed="0.1">
+    <h1 class="text-5xl md:text-7xl font-black text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-violet-400 mb-16 tracking-tight leading-none" data-scroll data-scroll-speed="0.2">
+        Notre expertise
+    </h1>
+    <h1 class="text-2xl md:text-4xl font-light text-center text-white/80 mb-12 max-w-5xl mx-auto leading-relaxed" data-scroll data-scroll-speed="0.15">
+        Nous sommes des artisans du numérique, façonnant l'avenir du web avec passion et innovation
+    </h1>
+    <div class="py-8">
+        <div class="max-w-7xl mx-auto p-6 bg-gray-900/50 backdrop-blur-sm text-white rounded-xl">
+            <h1 class="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-white to-violet-400 mb-12 tracking-widest">
+                Nos Services
+            </h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Site Vitrine -->
+                <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                    <h2 class="text-2xl font-semibold text-white mb-4">Site Vitrine</h2>
+                    <p class="text-white/80 mb-3">Une présence en ligne professionnelle avec un site vitrine moderne et responsive.</p>
+                    <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">499€</span></p>
+                    <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                        <li>Design et création sur mesure</li>
+                        <li>Optimisation SEO de base</li>
+                        <li>Intégration formulaire de contact</li>
+                        <li>Visuels réseaux sociaux</li>
+                        <li>Formation gestion du site</li>
+                    </ul>
+                    <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                        Je suis intéressé
+                    </a>
+                </div>
+
+                <!-- E-commerce -->
+                <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                    <h2 class="text-2xl font-semibold text-white mb-4">E-commerce</h2>
+                    <p class="text-white/80 mb-3">Créez une plateforme e-commerce robuste et performante.</p>
+                    <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">799€</span></p>
+                    <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                        <li>Design e-commerce personnalisé</li>
+                        <li>Configuration des paiements</li>
+                        <li>Optimisation SEO produits</li>
+                        <li>Système de gestion des stocks</li>
+                    </ul>
+                    <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                        Je suis intéressé
+                    </a>
+                </div>
+
+                <!-- Refonte de Site -->
+                <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                    <h2 class="text-2xl font-semibold text-white mb-4">E-book & Plateforme de Vente</h2>
+                    <p class="text-white/80 mb-3">Solution complète pour influenceurs : création d'e-book personnalisé et plateforme de vente dédiée.</p>
+                    <p class="font-bold text-white/90">Modèle de revenu: <span class="text-purple-400">Commission sur ventes</span></p>
+                    <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                        <li>Création d'e-book professionnel</li>
+                        <li>Site de vente personnalisé</li>
+                        <li>Système de paiement sécurisé</li>
+                        <li>Tableau de bord des ventes</li>
+                        <li>Marketing et promotion</li>
+                    </ul>
+                    <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                        Je suis intéressé
+                    </a>
+                </div>
+
+                <!-- SEO -->
+                <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                    <h2 class="text-2xl font-semibold text-white mb-4">SEO</h2>
+                    <p class="text-white/80 mb-3">Améliorez la visibilité de votre site.</p>
+                    <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">299€</span></p>
+                    <p class="font-bold text-white/90">Forfait mensuel: <span class="text-purple-400">À partir de 119€/mois</span></p>
+                    <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                        <li>Audit SEO complet</li>
+                        <li>Optimisation on-page</li>
+                        <li>Stratégie de mots-clés</li>
+                        <li>Campagnes de backlinks</li>
+                    </ul>
+                    <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                        Je suis intéressé
+                    </a>
+                </div>
+
+                <!-- Hébergement & Maintenance -->
+                <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                    <h2 class="text-2xl font-semibold text-white mb-4">Hébergement & Maintenance</h2>
+                    <p class="text-white/80 mb-3">Hébergement fiable et support technique.</p>
+                    <p class="font-bold text-white/90">Forfait mensuel: <span class="text-purple-400">À partir de 25€/mois</span></p>
+                    <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                        <li>Hébergement sécurisé</li>
+                        <li>Sauvegardes automatiques</li>
+                        <li>Mises à jour régulières</li>
+                        <li>Surveillance sécurité</li>
+                    </ul>
+                    <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                        Je suis intéressé
+                    </a>
+                </div>
+
+                <!-- Publicité en Ligne -->
+                <div class="border border-purple-400/30 rounded-xl p-6 shadow-lg bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+                    <h2 class="text-2xl font-semibold text-white mb-4">Publicité en Ligne</h2>
+                    <p class="text-white/80 mb-3">Campagnes ciblées sur Google, Facebook, TikTok et Instagram.</p>
+                    <p class="font-bold text-white/90">Prix de départ: <span class="text-purple-400">249€</span></p>
+                    <p class="font-bold text-white/90">Forfait mensuel: <span class="text-purple-400">À partir de 119€/mois</span></p>
+                    <ul class="list-disc ml-4 mt-4 space-y-2 text-white/70">
+                        <li>Configuration Google Ads</li>
+                        <li>Publicités réseaux sociaux</li>
+                        <li>Optimisation et suivi ROI</li>
+                    </ul>
+                    <a href="/contact" class="mt-6 inline-block text-center w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white font-semibold px-6 py-3 rounded-md hover:opacity-90 transition-all">
+                        Je suis intéressé
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer class="w-full bg-black backdrop-blur-lg py-6 border-t border-cyan-500/30 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 animate-pulse"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-white/80 text-sm mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
+                <div class="font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">PUMP GROUP</div>
+                <p class="max-w-md leading-relaxed backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-cyan-400/20">
+                    Transform your dreams into digital reality. Boost your online presence with a tailored digital strategy: high-performing websites, creative campaigns, engaging content, and optimized SEO.
+                </p>
+            </div>
+            <div class="flex flex-col items-end space-y-3">
+                <div class="text-white/80 text-sm backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-purple-400/20">
+                    <div class="font-medium">Hugo Bessières</div>
+                    <a href="mailto:hugobess@live.fr" class="hover:text-cyan-400 transition duration-200 group">
+                        hugobess@live.fr
+                        <span class="group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
+                    </a>
+                    <div class="font-light">Tel: 0612142402</div>
+                </div>
+                <div class="flex space-x-6 mt-4">
+                    <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Privacy Policy</a>
+                    <a href="/faq" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Terms of Service</a>
+                    <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="/javascript/index.js"></script>
+</body>
+</html>
