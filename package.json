@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "pump-group",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,21 +8,22 @@
     "build:css": "tailwindcss -i ./src/input.css -o ./public/css/output.css --minify"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Your Name",
+  "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "compression": "^1.7.5",
-    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
-    "ejs": "^3.1.10",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.9.3"
+    "mongoose": "^8.9.3",
+    "pm2": "^5.4.3"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
   },
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/pump-group.git"
+  }
 }

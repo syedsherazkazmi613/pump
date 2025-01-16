@@ -47,16 +47,10 @@
                         </div>
         
                         <!-- Button Side -->
-                        <div class="flex items-center">
-                            <% if (isAuthenticated) { %>
-                                <button onclick="window.location.href='/api/auth/logout'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
-                                    Déconnexion
-                                </button>
-                            <% } else { %>
-                                <button onclick="window.location.href='/login'" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
-                                    Connexion / Inscription
-                                </button>
-                            <% } %>
+                        <div class="hidden md:flex items-center">
+                            <a href="/contact" class="bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
+                                Contact
+                            </a>
                         </div>
         
                         <!-- Mobile menu button -->
@@ -81,6 +75,11 @@
                             <a href="/about-us" class="block text-white px-3 py-2 rounded-md text-base font-medium">À Propos</a>
                             <a href="/contact" class="block text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
                             <a href="/faq" class="block text-white px-3 py-2 rounded-md text-base font-medium">FAQ</a>
+                            <div class="mt-3 px-3">
+                                <a href="/contact" class="w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white px-4 py-2 rounded-md hover:opacity-90 transition-all font-semibold block text-center">
+                                    Contact
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
