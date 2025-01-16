@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const Contact = require('./models/Contact');
 require('dotenv').config();
 
 const app = express();
@@ -68,12 +69,19 @@ app.get('/contact', (req, res) => {
 // Contact API Route
 app.post('/api/contact', async (req, res) => {
     try {
-        const contact = new Contact(req.body);
+        const { firstName, lastName, email, phone, company, message } = req.body;
+        
+        const contact = new Contact({
+            name: `${firstName} ${lastName}`,
+            email: email,
+            message: `Company: ${company || 'N/A'}\nPhone: ${phone || 'N/A'}\nMessage: ${message}`
+        });
+
         await contact.save();
-        res.status(201).json({ message: 'Contact form submitted successfully' });
+        res.status(201).json({ message: 'Message sent successfully' });
     } catch (error) {
         console.error('Error saving contact:', error);
-        res.status(500).json({ message: 'Error submitting form' });
+        res.status(500).json({ message: 'Failed to send message' });
     }
 });
 

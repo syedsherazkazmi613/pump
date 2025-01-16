@@ -141,66 +141,47 @@
                 <!-- Contact Form -->
                 <div class="bg-white/5 backdrop-blur-sm rounded-lg shadow-xl p-8 border border-purple-400/30">
                     <form id="contactForm" class="space-y-6">
-                        <!-- Contact Type Selection -->
-                        <div class="space-y-4">
-                            <label class="block text-lg font-medium text-white mb-4">Please select an option:</label>
-                            <div class="space-y-2">
-                                <div class="flex items-center">
-                                    <input type="radio" id="calendar" name="contactType" value="calendar" class="h-4 w-4 text-purple-500">
-                                    <label for="calendar" class="ml-3 text-white/80">Schedule a meeting (Calendly)</label>
-                                </div>
-                                <div class="flex items-center">
-                                    <input type="radio" id="other" name="contactType" value="other" class="h-4 w-4 text-purple-500">
-                                    <label for="other" class="ml-3 text-white/80">Other inquiry</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Personal Information (Always visible) -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="firstName" class="block text-sm font-medium text-white/90">First Name *</label>
-                                <input type="text" name="firstName" id="firstName" required class="mt-1 block w-full bg-white/10 border border-purple-400/30 rounded-md text-white">
+                                <label for="firstName" class="block text-sm font-medium text-white/90 mb-2">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required
+                                    class="w-full px-3 py-2 bg-white/10 border border-purple-400/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">
                             </div>
-
                             <div>
-                                <label for="lastName" class="block text-sm font-medium text-white/90">Last Name *</label>
-                                <input type="text" name="lastName" id="lastName" required class="mt-1 block w-full bg-white/10 border border-purple-400/30 rounded-md text-white">
-                            </div>
-
-                            <div>
-                                <label for="company" class="block text-sm font-medium text-white/90">Company Name *</label>
-                                <input type="text" name="company" id="company" required class="mt-1 block w-full bg-white/10 border border-purple-400/30 rounded-md text-white">
-                            </div>
-
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-white/90">Email *</label>
-                                <input type="email" name="email" id="email" required class="mt-1 block w-full bg-white/10 border border-purple-400/30 rounded-md text-white">
-                            </div>
-
-                            <div class="mt-2">
-                                <label for="phone" class="block text-sm font-medium text-white/90">Phone Number *</label>
-                                <input type="tel" name="phone" id="phone" required class="mt-1 block w-full bg-white/10 border border-purple-400/30 rounded-md text-white">
+                                <label for="lastName" class="block text-sm font-medium text-white/90 mb-2">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required
+                                    class="w-full px-3 py-2 bg-white/10 border border-purple-400/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">
                             </div>
                         </div>
-
-                        <!-- Project Description (Only visible when "Other" is selected) -->
-                        <div id="projectDescription" class="hidden">
-                            <label for="description" class="block text-sm font-medium text-white/90">Please describe your project, questions, or needs *</label>
-                            <textarea name="description" id="description" rows="4" class="mt-1 block w-full bg-white/10 border border-purple-400/30 rounded-md text-white"></textarea>
-                        </div>
-
-                        <!-- Calendly Integration (Only visible when "Calendar" is selected) -->
-                        <div id="calendlySection" class="hidden">
-                            <!-- Calendly inline widget will be loaded here -->
-                            <div class="calendly-inline-widget" data-url="https://calendly.com/pump-group" style="min-width:320px;height:600px;"></div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-white/90 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-3 py-2 bg-white/10 border border-purple-400/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">
                         </div>
 
                         <div>
-                            <button type="submit" class="w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white hover:from-purple-600 hover:to-violet-700 py-2 px-4 rounded-md font-semibold transition duration-300">
-                                Submit
-                            </button>
+                            <label for="phone" class="block text-sm font-medium text-white/90 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="w-full px-3 py-2 bg-white/10 border border-purple-400/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">
                         </div>
+
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-white/90 mb-2">Company Name</label>
+                            <input type="text" id="company" name="company"
+                                class="w-full px-3 py-2 bg-white/10 border border-purple-400/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-white/90 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                class="w-full px-3 py-2 bg-white/10 border border-purple-400/30 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-purple-500/40"></textarea>
+                        </div>
+
+                        <button type="submit" 
+                            class="w-full bg-gradient-to-r from-purple-500 to-violet-600 text-white hover:from-purple-600 hover:to-violet-700 py-3 px-4 rounded-md font-semibold transition duration-300">
+                            Send Message
+                        </button>
                     </form>
                 </div>
             </div>
