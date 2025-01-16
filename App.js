@@ -5,9 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
-// Dynamic port allocation with validation
-const PORT = parseInt(process.env.PORT || '8080');
-const MAX_PORT = 65535; // Maximum valid port number
+// Set port to 3000
+const PORT = parseInt(process.env.PORT || '3000');
+const MAX_PORT = 65535;
 
 // Middleware
 app.use(express.static('public'));
