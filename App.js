@@ -5,8 +5,9 @@ require('dotenv').config();
 
 const app = express();
 
-// Dynamic port allocation
-const PORT = process.env.PORT || 8080; // Changed from 3000 to 8080
+// Dynamic port allocation with validation
+const PORT = parseInt(process.env.PORT || '8080');
+const MAX_PORT = 65535; // Maximum valid port number
 
 // Middleware
 app.use(express.static('public'));
@@ -17,18 +18,29 @@ app.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
-        // Try different ports if the default is busy
-        const server = app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        }).on('error', (err) => {
-            if (err.code === 'EADDRINUSE') {
-                // If port is busy, try the next port
-                console.log(`Port ${PORT} is busy, trying ${PORT + 1}`);
-                server.listen(PORT + 1);
-            } else {
-                console.error('Server error:', err);
+        
+        // Function to try different ports
+        const tryPort = (port) => {
+            if (port > MAX_PORT) {
+                console.error('No available ports found');
+                process.exit(1);
+                return;
             }
-        });
+
+            app.listen(port, () => {
+                console.log(`Server is running on port ${port}`);
+            }).on('error', (err) => {
+                if (err.code === 'EADDRINUSE') {
+                    console.log(`Port ${port} is busy, trying ${port + 1}`);
+                    tryPort(port + 1);
+                } else {
+                    console.error('Server error:', err);
+                }
+            });
+        };
+
+        // Start trying ports
+        tryPort(PORT);
     })
     .catch(err => console.error('MongoDB connection error:', err));
 
