@@ -20,28 +20,11 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('Connected to MongoDB');
         
-        // Function to try different ports
-        const tryPort = (port) => {
-            if (port > MAX_PORT) {
-                console.error('No available ports found');
-                process.exit(1);
-                return;
-            }
-
-            app.listen(port, () => {
-                console.log(`Server is running on port ${port}`);
-            }).on('error', (err) => {
-                if (err.code === 'EADDRINUSE') {
-                    console.log(`Port ${port} is busy, trying ${port + 1}`);
-                    tryPort(port + 1);
-                } else {
-                    console.error('Server error:', err);
-                }
-            });
-        };
-
-        // Start trying ports
-        tryPort(PORT);
+        app.listen(3000, () => {
+            console.log('Server is running on port 3000');
+        }).on('error', (err) => {
+            console.error('Server error:', err);
+        });
     })
     .catch(err => console.error('MongoDB connection error:', err));
 

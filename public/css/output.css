@@ -1570,10 +1570,6 @@ video {
   --tw-ring-color: rgb(168 85 247 / var(--tw-ring-opacity, 1));
 }
 
-.focus\:ring-purple-500\/40:focus {
-  --tw-ring-color: rgb(168 85 247 / 0.4);
-}
-
 .group:hover .group-hover\:left-0 {
   left: 0px;
 }
