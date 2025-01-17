@@ -55,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             <svg class="mx-auto h-12 w-12 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <h3 class="mt-4 text-xl font-medium text-white">Message sent successfully!</h3>
-                            <p class="mt-2 text-white/80">We'll get back to you soon.</p>
+                            <h3 class="mt-4 text-xl font-medium text-white">Message envoyé avec succès!</h3>
+                            <p class="mt-2 text-white/80">Nous vous répondrons bientôt.</p>
                             <button onclick="window.location.reload()" class="mt-6 bg-gradient-to-r from-purple-500 to-violet-600 text-white px-6 py-2 rounded-md hover:opacity-90 transition-all font-semibold">
-                                Send another message
+                                Envoyer un autre message
                             </button>
                         </div>
                     `;
