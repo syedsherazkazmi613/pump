@@ -23,9 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Show loading state
             const submitButton = form.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton.innerHTML;
             submitButton.innerHTML = 'Sending...';
             submitButton.disabled = true;
 
@@ -49,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 if (response.ok) {
-                    // Show success message
                     form.innerHTML = `
                         <div class="text-center py-8">
                             <svg class="mx-auto h-12 w-12 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,17 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     throw new Error('Failed to send message');
                 }
             } catch (error) {
-                // Show error message
-                submitButton.innerHTML = originalButtonText;
                 submitButton.disabled = false;
+                submitButton.innerHTML = 'Submit';
                 
                 const errorDiv = document.createElement('div');
                 errorDiv.className = 'mt-4 p-4 bg-red-500/20 border border-red-500/50 rounded-md text-white text-center';
                 errorDiv.innerHTML = 'Failed to send message. Please try again.';
-                
                 form.insertBefore(errorDiv, submitButton.parentElement);
-                
-                // Remove error message after 5 seconds
                 setTimeout(() => errorDiv.remove(), 5000);
             }
         });

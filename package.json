@@ -1,29 +1,29 @@
 {
   "name": "pump-group",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "PUMP GROUP - Digital Agency Website",
+  "main": "App.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node App.js",
+    "dev": "nodemon App.js",
     "build": "npm install && npm run build:css",
     "build:css": "tailwindcss -i ./src/input.css -o ./public/css/output.css --minify"
   },
-  "keywords": [],
-  "author": "Your Name",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syedsherazkazmi613/pump.git"
+  },
+  "author": "Hugo Bessières",
   "license": "MIT",
   "dependencies": {
     "compression": "^1.7.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
-    "mongoose": "^8.9.3",
-    "pm2": "^5.4.3"
+    "mongoose": "^8.9.3"
   },
   "devDependencies": {
+    "nodemon": "^3.0.1",
     "tailwindcss": "^3.4.17"
-  },
-  "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yourusername/pump-group.git"
   }
 }

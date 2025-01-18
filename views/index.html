@@ -396,26 +396,47 @@
                 <div class="text-white/80 text-sm mb-4 md:mb-0 transform hover:scale-105 transition duration-300">
                     <div class="font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">PUMP GROUP</div>
                     <p class="max-w-md leading-relaxed backdrop-blur-sm bg-black/80 p-4 rounded-lg border border-cyan-400/20">
-                        Transform your dreams into digital reality. Boost your online presence with a tailored digital strategy: high-performing websites, creative campaigns, engaging content, and optimized SEO.
+                        Transformez vos rêves en réalité numérique. Boostez votre présence en ligne avec une stratégie digitale sur mesure : sites web performants, campagnes créatives, contenu engageant et SEO optimisé.
                     </p>
                 </div>
                 <div class="flex flex-col items-end space-y-3">
                     <div class="text-white/80 text-sm backdrop-blur-sm bg-black/20 p-4 rounded-lg border border-purple-400/20">
-                        <div class="font-medium">Contact Us</div>
+                        <div class="font-medium">Contactez-nous</div>
                         <a href="/contact" class="hover:text-cyan-400 transition duration-200 group">
-                            Get in touch
+                            Nous contacter
                             <span class="group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
                         </a>
                     </div>
                     <div class="flex space-x-6 mt-4">
-                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Privacy Policy</a>
-                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Terms of Service</a>
-                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Contact Us</a>
+                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Politique de Confidentialité</a>
+                        <a href="#" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110" onclick="showTermsPopup()">Conditions d'Utilisation</a>
+                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Nous Contacter</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        function showTermsPopup() {
+            const popup = document.createElement('div');
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            popup.style.color = 'white';
+            popup.style.padding = '20px';
+            popup.style.borderRadius = '10px';
+            popup.style.zIndex = '1000';
+            popup.innerHTML = `
+                <h2>Terms and Conditions</h2>
+                <p>Here are the terms and conditions: [Insert detailed terms and conditions here]</p>
+                <button onclick="document.body.removeChild(this.parentNode)" style="margin-top: 10px; padding: 5px 10px; background-color: #4B0082; color: white; border: none; border-radius: 5px;">Close</button>
+            `;
+            document.body.appendChild(popup);
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Set up Three.js scene
