@@ -46,6 +46,8 @@ app.get('/about-us', sendHtml('about-us'));
 app.get('/faq', sendHtml('faq'));
 app.get('/our-service', sendHtml('our-service'));
 app.get('/contact', sendHtml('contact'));
+app.get('/terms', sendHtml('terms'));
+app.get('/privacy', sendHtml('privacy'));
 
 // Contact API Route
 app.post('/api/contact', async (req, res) => {

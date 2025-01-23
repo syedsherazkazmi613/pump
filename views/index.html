@@ -162,8 +162,7 @@
                 campagnes créatives, contenus engageants et SEO optimisé.
             </p>
             <p class="text-lg md:text-2xl mb-8 text-white/90">
-                Ensemble, bâtissons une présence en ligne qui attire, captive et convertit. Prêts à commencer cette
-                aventure ensemble ? 🚀
+                Nous accompagnons les jeunes entreprises en leur proposant des sites web modernes et optimisés, conçus sur mesure pour allier performance et accessibilité. Prêt à commencer ? 🚀
             </p>
             <a href="/contact"
                 class="bg-gradient-to-r from-purple-500 to-violet-600 text-white hover:from-purple-600 hover:to-violet-700 px-6 py-3 rounded-lg font-semibold text-lg shadow-md">
@@ -408,35 +407,15 @@
                         </a>
                     </div>
                     <div class="flex space-x-6 mt-4">
-                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Politique de Confidentialité</a>
-                        <a href="#" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110" onclick="showTermsPopup()">Conditions d'Utilisation</a>
-                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm transition-all duration-300 hover:scale-110">Nous Contacter</a>
+                        <a href="/privacy" class="text-white/80 hover:text-cyan-400 text-sm">Politique de Confidentialité</a>
+                        <a href="/terms" class="text-white/80 hover:text-cyan-400 text-sm">Conditions d'Utilisation</a>
+                        <a href="/contact" class="text-white/80 hover:text-cyan-400 text-sm">Nous Contacter</a>
                     </div>
-                </div>
+                      </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        function showTermsPopup() {
-            const popup = document.createElement('div');
-            popup.style.position = 'fixed';
-            popup.style.top = '50%';
-            popup.style.left = '50%';
-            popup.style.transform = 'translate(-50%, -50%)';
-            popup.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-            popup.style.color = 'white';
-            popup.style.padding = '20px';
-            popup.style.borderRadius = '10px';
-            popup.style.zIndex = '1000';
-            popup.innerHTML = `
-                <h2>Terms and Conditions</h2>
-                <p>Here are the terms and conditions: [Insert detailed terms and conditions here]</p>
-                <button onclick="document.body.removeChild(this.parentNode)" style="margin-top: 10px; padding: 5px 10px; background-color: #4B0082; color: white; border: none; border-radius: 5px;">Close</button>
-            `;
-            document.body.appendChild(popup);
-        }
-    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Set up Three.js scene
